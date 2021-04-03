@@ -1,7 +1,7 @@
 import bpy
 import socket
 import threading
-from . BlenderRemotiyThread import BlenderRemotiyThread
+from . BlenderRemotifyThread import BlenderRemotifyThread
 
 class BLENDERREMOTIFY_OT_ServerStarter(bpy.types.Operator):
     bl_idname = 'blenderremotify.serverstarter'

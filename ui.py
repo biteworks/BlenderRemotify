@@ -12,9 +12,9 @@ class BLENDERREMOTIFY_PT_Panel(bpy.types.Panel):
         scn = bpy.context.scene
         blenderremotifysprops = scn.blenderremotifysprops
 
-        layout.operator("blenderremotify.serverstarter", text="Start Server")
-
         if blenderremotifysprops.serverIsRunning:
             layout.label(text="Server is running on 127.0.0.1:3000")
         else:
             layout.label(text="Server is not running")
+
+        layout.operator("blenderremotify.serverstarter", text="Start Server")
