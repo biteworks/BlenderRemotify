@@ -1,2 +1,2 @@
 # BlenderRemotify
-BlendeRemotify- A Blender addon to remote control blender with TCP
+## A Blender addon to remote control blender with TCP
