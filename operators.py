@@ -9,7 +9,7 @@ class BLENDERREMOTIFY_OT_ServerStarter(bpy.types.Operator):
 
     thread = None
     timer = None
-    receivedData = None
+    receivedData = [0, 0, 0, 0, 0, 0, 0]
 
     def modal(self, context, event):
         scn = bpy.context.scene
@@ -27,7 +27,6 @@ class BLENDERREMOTIFY_OT_ServerStarter(bpy.types.Operator):
         if event.type == 'TIMER':
             if self.receivedData != self.thread.data:
                 self.receivedData = self.thread.data
-                print(type(self.receivedData))
                 print(self.receivedData)
             #bpy.data.objects['cube'].location = self.thread.data[:2]
             #bpy.data.objects['cube'].rotation_quaternion = self.thread.data[3:]
