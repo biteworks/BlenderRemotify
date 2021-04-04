@@ -15,7 +15,7 @@ class BLENDERREMOTIFY_OT_ServerStarter(bpy.types.Operator):
         scn = bpy.context.scene
         blenderremotifysprops = scn.blenderremotifysprops
 
-        # Stop the thread when ESCAPE is pressed.
+        # Stop the thread when ESCAPE is pressed
         if event.type == 'ESC':
             blenderremotifysprops.serverIsRunning = False
             self.thread.stop()
@@ -23,13 +23,11 @@ class BLENDERREMOTIFY_OT_ServerStarter(bpy.types.Operator):
 
             return {'CANCELLED'}
 
-        # Update the object with the received data.
+        # Update the received data
         if event.type == 'TIMER':
             if self.receivedData != self.thread.data:
                 self.receivedData = self.thread.data
                 print(self.receivedData)
-            #bpy.data.objects['cube'].location = self.thread.data[:2]
-            #bpy.data.objects['cube'].rotation_quaternion = self.thread.data[3:]
         
         return {'PASS_THROUGH'}
 
