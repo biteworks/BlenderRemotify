@@ -1,8 +1,8 @@
-import bpy
 import socket
 import struct
 import subprocess
 import threading
+import json
 
 class BlenderRemotifyThread(threading.Thread):
     data = None
@@ -32,6 +32,8 @@ class BlenderRemotifyThread(threading.Thread):
         # Receive new data from the client.
         while self.running:
             try:
-                self.data = struct.unpack('7f', sock.recv(7*4))
+                recievedData = sock.recvfrom(1024)
+                self.data = json.loads(recievedData[0])
+                #self.data = sock.recvfrom(1024)
             except socket.timeout:
                 pass

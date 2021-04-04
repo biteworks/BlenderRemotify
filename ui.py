@@ -13,8 +13,10 @@ class BLENDERREMOTIFY_PT_Panel(bpy.types.Panel):
         blenderremotifysprops = scn.blenderremotifysprops
 
         if blenderremotifysprops.serverIsRunning:
-            layout.label(text="Server is running on 127.0.0.1:3000")
+            layout.label(text="Server is running...")
+            layout.label(text="IP: " + blenderremotifysprops.serverIP)
+            layout.label(text="Port: 3000")
         else:
-            layout.label(text="Server is not running")
+            layout.label(text="Server is not running.")
 
         layout.operator("blenderremotify.serverstarter", text="Start Server")
