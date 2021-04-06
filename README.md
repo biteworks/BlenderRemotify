@@ -1,4 +1,4 @@
-# BlenderRemotify - A Blender addon for socket communication
+# BlenderRemotify
 ## Background
 Since Blender does not handle a native socket connection to the outside, I developed one.
 The original idea comes from [Merwan Achibet](http://merwanachibet.net/blog/blender-long-running-python-scripts/) and will be further developed by me to a complete addon.
