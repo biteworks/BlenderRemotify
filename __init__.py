@@ -2,7 +2,7 @@ bl_info = {
     "name": "BlenderRemotify",
     "description": "A Blender addon to remote control blender with TCP",
     "author": "Tobias Wilhelm (biteworks)",
-    "version": (0, 0, 1),
+    "version": (0, 0, 2),
     "blender": (2, 83, 0),
     "location": "3D View > Tools > BlenderRemotify",
     "category": "Generic"
@@ -16,7 +16,8 @@ from . ui import *
 classes = (
     BlenderRemotifyProps,
     BLENDERREMOTIFY_PT_Panel,
-    BLENDERREMOTIFY_OT_ServerStarter
+    BLENDERREMOTIFY_OT_ServerStarter,
+    BLENDERREMOTIFY_OT_AppendRig
 )
 
 def register():

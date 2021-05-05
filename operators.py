@@ -46,3 +46,14 @@ class BLENDERREMOTIFY_OT_ServerStarter(bpy.types.Operator):
         self.timer = context.window_manager.event_timer_add(0.01, window=context.window)
         context.window_manager.modal_handler_add(self)
         return {'RUNNING_MODAL'}
+
+class BLENDERREMOTIFY_OT_AppendRig(bpy.types.Operator):
+    bl_idname = 'blenderremotify.appendrig'
+    bl_label = 'Create Camera Rig'
+
+    def execute(self, context):
+        addonPath = bpy.utils.user_resource('SCRIPTS', "addons") + '/BlenderRemotify'
+        path = addonPath + '/BlenderRemotifyRig.blend\\Collection\\'
+        object_name = 'BlenderRemotifyRig'
+        bpy.ops.wm.append(filename=object_name, directory=path, active_collection=False)
+        return {"FINISHED"}

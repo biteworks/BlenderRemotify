@@ -12,11 +12,22 @@ class BLENDERREMOTIFY_PT_Panel(bpy.types.Panel):
         scn = bpy.context.scene
         blenderremotifysprops = scn.blenderremotifysprops
 
-        if blenderremotifysprops.serverIsRunning:
-            layout.label(text="Server is running...")
-            layout.label(text="IP: " + blenderremotifysprops.serverIP)
-            layout.label(text="Port: 3000")
-        else:
-            layout.label(text="Server is not running.")
+        box = layout.box()
+        row = box.row()
+        row.label(text="Camera")
+        row = box.row()
+        row.operator("blenderremotify.appendrig", text="Create camera rig")
 
-        layout.operator("blenderremotify.serverstarter", text="Start Server")
+        box = layout.box()
+        if blenderremotifysprops.serverIsRunning:
+            row = box.row()
+            row.label(text="Server is running...")
+            row = box.row()
+            layout.label(text="IP: " + blenderremotifysprops.serverIP)
+            row = box.row()
+            row.label(text="Port: 3000")
+        else:
+            row = box.row()
+            row.label(text="Server is not running.")
+        row = box.row()
+        row.operator("blenderremotify.serverstarter", text="Start Server")
