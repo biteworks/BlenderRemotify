@@ -32,7 +32,7 @@ class BlenderRemotifyThread(threading.Thread):
         # Receive new data from the client
         while self.running:
             try:
-                recievedData = sock.recvfrom(1024)
-                self.data = json.loads(recievedData[0])
+                recievedData = sock.recvfrom(4096)
+                self.data = json.loads(recievedData[0].decode('utf-8'))
             except socket.timeout:
                 pass

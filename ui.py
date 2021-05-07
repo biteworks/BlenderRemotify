@@ -23,7 +23,7 @@ class BLENDERREMOTIFY_PT_Panel(bpy.types.Panel):
             row = box.row()
             row.label(text="Server is running...")
             row = box.row()
-            layout.label(text="IP: " + blenderremotifysprops.serverIP)
+            row.label(text="IP: " + blenderremotifysprops.serverIP)
             row = box.row()
             row.label(text="Port: 3000")
         else:

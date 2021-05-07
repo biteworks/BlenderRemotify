@@ -28,6 +28,10 @@ class BLENDERREMOTIFY_OT_ServerStarter(bpy.types.Operator):
             if self.receivedData != self.thread.data:
                 self.receivedData = self.thread.data
                 print(self.receivedData)
+
+                # Temp test
+                zRotation = float(self.receivedData["rotation"])
+                bpy.data.objects['BlenderRemotifyRig_Rotation'].rotation_euler[2] = zRotation
         
         return {'PASS_THROUGH'}
 
